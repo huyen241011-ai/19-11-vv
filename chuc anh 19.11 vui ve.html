@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc phtiendat 19/11 vui vẻ! ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://w3.org" width="800" height="800" viewBox="0 0 800 800"><rect width="100%" height="100%" fill="%231a0510"/><radialGradient id="g" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="%236b112c"/><stop offset="100%" stop-color="%230d0208"/></radialGradient><rect width="100%" height="100%" fill="url(%23g)" opacity="0.7"/><g fill="%23ff4d6d" opacity="0.15"><circle cx="200" cy="150" r="3"/><circle cx="600" cy="250" r="2"/><circle cx="350" cy="500" r="4"/><circle cx="150" cy="600" r="2"/><circle cx="650" cy="550" r="3"/><circle cx="450" cy="200" r="1.5"/></g></svg>') repeat;
+            background-size: cover;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        /* Hiệu ứng cánh hoa bay nhảy ở nền */
+        .rose-bg {
+            position: absolute;
+            color: rgba(255, 94, 114, 0.6);
+            font-size: 24px;
+            animation: fall linear infinite;
+            z-index: 1;
+            user-select: none;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg) translateX(0); opacity: 1; }
+            50% { transform: translateY(50vh) rotate(180deg) translateX(20px); opacity: 0.8; }
+            100% { transform: translateY(110vh) rotate(360deg) translateX(-20px); opacity: 0; }
+        }
+
+        /* KHUNG HIỂN THỊ CHÍNH */
+        .container {
+            position: relative;
+            width: 360px;
+            height: 480px;
+            z-index: 2;
+        }
+
+        /* 1. GIAO DIỆN LOADING LOVE (GIỐNG VIDEO TIKTOK) */
+        .loading-screen {
+            width: 100%;
+            height: 100%;
+            background: #fff0f3;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            transition: all 0.8s ease-in-out;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .loading-heart {
+            font-size: 60px;
+            animation: pulse 1s infinite alternate;
+            margin-bottom: 20px;
+        }
+        @keyframes pulse { 0% { transform: scale(1); } 100% { transform: scale(1.15); } }
+
+        /* Thanh phần trăm tiến trình */
+        .progress-container {
+            width: 70%;
+            height: 12px;
+            background-color: #ffd1dc;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #ff4d6d, #ff758f);
+            border-radius: 10px;
+            transition: width 0.1s linear;
+        }
+
+        .loading-text {
+            font-size: 1.1rem;
+            color: #ff4d6d;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* 2. GIAO DIỆN THƯ SAU KHI LOAD XONG (TỰ ĐỘNG BẬT RA) */
+        .letter-box {
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.96);
+            color: #2d3436;
+            border-radius: 20px;
+            border: 4px solid #ff5e62;
+            padding: 40px 25px 25px 25px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            
+            /* Ban đầu ẩn đi */
+            opacity: 0;
+            transform: scale(0.8) translateY(30px);
+            pointer-events: none;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* Trạng thái chuyển cảnh khi load đạt 100% */
+        .container.loaded .loading-screen {
+            opacity: 0;
+            transform: scale(0.8) translateY(-30px);
+            pointer-events: none;
+        }
+
+        .container.loaded .letter-box {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            pointer-events: auto;
+        }
+
+        .letter-box h2 {
+            color: #d63031;
+            font-size: 1.3rem;
+            margin-top: 0;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+        
+        .sub-title {
+            font-size: 0.95rem;
+            color: #ff5e62;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+            border-bottom: 2px dashed #ff5e62;
+            padding-bottom: 10px;
+        }
+
+        .letter-content {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            text-align: justify;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .letter-content p {
+            margin: 14px 0;
+            text-indent: 10px;
+        }
+
+        .signature {
+            text-align: right;
+            width: 100%;
+            margin-top: auto;
+            padding-bottom: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #d63031;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainContainer">
+        
+        <!-- MÀN HÌNH CHẠY LOADING GIỐNG VIDEO TIKTOK -->
+        <div class="loading-screen">
+            <div class="loading-heart">❤️</div>
+            <div class="progress-container">
+                <div class="progress-bar" id="pBar"></div>
+            </div>
+            <div class="loading-text" id="loadText">LOADING LOVE 0%</div>
+        </div>
+        
+        <!-- BỨC THƯ TỰ ĐỘNG HIỆN RA SAU ĐÓ -->
+        <div class="letter-box">
+            <h2>Gửi anh... 🤍</h2>
+            <div class="sub-title">Chúc phtiendat, ny em 19/11 vui vẻ!</div>
+            <div class="letter-content">
+                <p>Nay là 19/11, em mong anh sẽ luôn mạnh khỏe, nghe lời bố mẹ, bớt game lo học và luôn quan tâm tới em.</p>
+                <p>Em biết anh kcon tcam với em nữa nhưng em mong anh vẫn có thể cố gắng bước tiếp với em.</p>
+            </div>
+            <div class="signature">Yêu anh! 🌹</div>
+        </div>
+
+    </div>
+
+    <script>
+        // Xử lý logic tự động chạy phần trăm thanh tiến trình (Loading Bar)
+        let percent = 0;
+        const pBar = document.getElementById('pBar');
+        const loadText = document.getElementById('loadText');
+        const mainContainer = document.getElementById('mainContainer');
+
+        const interval = setInterval(() => {
+            percent += 1;
+            pBar.style.width = percent + '%';
+            loadText.innerHTML = `LOADING LOVE ${percent}%`;
+
+            if (percent >= 100) {
+                clearInterval(interval);
+                // Sau khi đạt 100%, chờ 400ms rồi tự kích hoạt chuyển cảnh mở bức thư
+                setTimeout(() => {
+                    mainContainer.classList.add('loaded');
+                }, 400);
+            }
+        }, 30); // Tốc độ chạy hoàn thành thanh load trong khoảng 3 giây
+
+        // Hàm sinh hiệu ứng hoa rơi ngẫu nhiên liên tục ở hình nền
+        function createRose() {
+            const rose = document.createElement('div');
+            rose.classList.add('rose-bg');
+            const icons = ['🌹', '🌸', '❤️', '💕', '✨'];
+            rose.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+            
+            rose.style.left = Math.random() * 100 + 'vw';
+            rose.style.animationDuration = Math.random() * 3 + 4 + 's';
+            rose.style.fontSize = Math.random() * 15 + 12 + 'px';
+            document.body.appendChild(rose);
+            
+            setTimeout(() => { rose.remove(); }, 7000);
+        }
+        setInterval(createRose, 350);
+    </script>
+
+</body>
+</html>
