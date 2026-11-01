@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gửi Người Đàn Ông Của Em | 19.11</title>
+    <title>Gửi phtiendat ❤️</title>
     <style>
-        /* Phong cách lãng mạn hiện đại */
+        /* Thiết lập nền chung */
         body {
             margin: 0;
             padding: 0;
@@ -13,29 +13,32 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            /* Thay background thành bầu trời hoa hồng lãng mạn */
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                        url('https://unsplash.com') no-repeat center center/cover;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow: hidden;
         }
 
-        /* Hiệu ứng tim rơi phía nền */
-        .heart-bg {
+        /* Hiệu ứng hoa hồng/tim rơi ở nền */
+        .rose-bg {
             position: absolute;
-            color: rgba(255, 75, 75, 0.3);
+            color: rgba(255, 105, 180, 0.4);
             font-size: 20px;
             animation: fall linear infinite;
             z-index: 1;
+            user-select: none;
         }
         @keyframes fall {
             0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
             100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
         }
 
-        /* Hộp thiệp 3D */
+        /* Khung chứa thiệp lật nằm chính giữa màn hình */
         .card-container {
             position: relative;
-            width: 380px;
-            height: 500px;
+            width: 360px;
+            height: 480px;
             perspective: 1000px;
             z-index: 2;
             cursor: pointer;
@@ -46,12 +49,12 @@
             height: 100%;
             position: relative;
             transform-style: preserve-3d;
-            transition: transform 1s ease-in-out;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            border-radius: 15px;
+            transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            border-radius: 20px;
         }
 
-        /* Hiệu ứng lật mở khi rê chuột hoặc click */
+        /* Khi rê chuột hoặc chạm vào thì lật mở thiệp */
         .card-container:hover .card {
             transform: rotateY(-180deg);
         }
@@ -61,7 +64,7 @@
             width: 100%;
             height: 100%;
             backface-visibility: hidden;
-            border-radius: 15px;
+            border-radius: 20px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -70,29 +73,24 @@
             box-sizing: border-box;
         }
 
-        /* Mặt trước của thiệp */
+        /* TRANG ĐẦU (MẶT TRƯỚC THIỆP) */
         .card-front {
-            background: linear-gradient(to bottom, #ff416c, #ff4b2b);
+            background: linear-gradient(135deg, #ff5e62, #ff9966);
             color: white;
             text-align: center;
+            border: 4px solid #fff;
         }
 
         .card-front h1 {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
+            font-size: 1.6rem;
+            line-height: 1.5;
+            margin: 15px 0;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
-        .card-front p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
         .main-heart {
-            font-size: 80px;
-            color: white;
+            font-size: 70px;
             animation: beat 1.2s infinite;
-            margin: 20px 0;
         }
 
         @keyframes beat {
@@ -100,108 +98,107 @@
             50% { transform: scale(1.15); }
         }
 
-        /* Mặt sau chứa thư tình ngọt ngào */
+        /* TRANG TRONG (MẶT SAU KHI MỞ RA) */
         .card-back {
-            background: #ffffff;
+            /* Mặt sau có cùng background bầu trời hoa hồng đồng bộ với nền */
+            background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), 
+                        url('https://unsplash.com') no-repeat center center/cover;
             color: #333333;
             transform: rotateY(180deg);
             justify-content: flex-start;
-            overflow-y: auto;
-            border: 5px solid #ff4b2b;
+            border: 4px solid #ff5e62;
+            padding-top: 40px;
         }
 
         .card-back h2 {
-            color: #ff416c;
-            margin-top: 10px;
-            font-size: 1.5rem;
-            border-bottom: 2px dashed #ff4b2b;
+            color: #d63031;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            border-bottom: 2px dashed #ff5e62;
             padding-bottom: 5px;
             width: 100%;
             text-align: center;
         }
 
-        /* Nội dung bức thư */
+        /* Từng dòng lời chúc */
         .letter-content {
             font-size: 1.05rem;
-            line-height: 1.6;
+            line-height: 1.8;
             text-align: justify;
-            font-style: italic;
-            color: #444;
+            font-weight: 500;
+        }
+
+        .letter-content p {
+            margin: 12px 0;
         }
 
         .signature {
             text-align: right;
             width: 100%;
-            margin-top: 15px;
+            margin-top: 25px;
+            font-size: 1.2rem;
             font-weight: bold;
-            color: #ff416c;
+            color: #d63031;
+            font-style: italic;
         }
 
-        /* Gợi ý tương tác nhỏ */
+        /* Gợi ý mở thiệp */
         .hint {
             position: absolute;
-            bottom: 15px;
+            bottom: 20px;
             font-size: 0.85rem;
-            opacity: 0.7;
-            animation: fade 1.5s infinite alternate;
+            opacity: 0.8;
+            animation: fade 1s infinite alternate;
         }
-        @keyframes fade { 0% { opacity: 0.3; } 100% { opacity: 0.9; } }
+        @keyframes fade { 0% { opacity: 0.4; } 100% { opacity: 1; } }
     </style>
 </head>
 <body>
 
-    <!-- Khung chứa thiệp lật -->
+    <!-- Khung chứa thiệp -->
     <div class="card-container">
         <div class="card">
             
-            <!-- MẶT TRƯỚC THIỆP -->
+            <!-- TRANG ĐẦU CỦA BỨC THƯ -->
             <div class="card-front">
-                <p>Thế giới có 8 tỷ người...</p>
-                <div class="main-heart">❤️</div>
-                <h1>HAPPY MEN'S DAY</h1>
-                <p>Ngày 19 tháng 11 đặc biệt</p>
-                <div class="hint">Chạm hoặc rê chuột để mở thư nhé... ✨</div>
+                <div class="main-heart">🌹</div>
+                <h1>Chúc phtiendat,<br>ny em 19/11 vui vẻ!</h1>
+                <div class="hint">Chạm hoặc di chuột để mở thư nhé... ✨</div>
             </div>
             
-            <!-- MẶT SAU THIỆP (NỘI DUNG THƯ) -->
+            <!-- TRANG Ở GIỮA KHI MỞ BỨC THƯ RA -->
             <div class="card-back">
-                <h2>Gửi Anh - Người Đàn Ông Của Em!</h2>
+                <h2>Gửi anh... 🤍</h2>
                 <div class="letter-content">
-                    <p><br>
-                        Hôm nay là 19/11, ngày để cả thế giới tôn vinh những người đàn ông tuyệt vời, và với em, anh chính là người tuyệt vời nhất! 
-                    </p>
-                    <p>
-                        Cảm ơn anh vì đã luôn là bờ vai vững chãi, luôn kiên nhẫn yêu thương, che chở và bao dung cho những hờn dỗi vu vơ của em. Ở bên anh, em luôn có cảm giác bình yên đến lạ kỳ.
-                    </p>
-                    <p>
-                        Chúc người yêu của em ngày một trưởng thành, luôn vững vàng với những đam mê và gặt hái được mọi thành công mà anh mong muốn. Cho dù áp lực cuộc sống ngoài kia có lớn thế nào, hãy nhớ rằng luôn có em ở phía sau ủng hộ và yêu thương anh vô điều kiện.
-                    </p>
-                    <p>
-                        Hôm nay anh chỉ việc mỉm cười và hạnh phúc thôi, cả thế giới này cứ để em lo (hoặc ít nhất là lo cho anh)! Moahhh ~ 💋
-                    </p>
+                    <p>Nay là 19/11, em mong anh sẽ luôn mạnh khỏe, nghe lời bố mẹ, bớt game lo học và luôn quan tâm tới em.</p>
+                    <p>Em biết anh kcon tcam với em nữa nhưng em mong anh vẫn có thể cố gắng bước tiếp với em.</p>
                 </div>
-                <div class="signature">Yêu anh rất nhiều! 💕</div>
+                <div class="signature">Yêu anh! 🌹</div>
             </div>
 
         </div>
     </div>
 
-    <!-- Đoạn code JS tạo hiệu ứng tim bay ngẫu nhiên ở nền -->
+    <!-- Hiệu ứng cánh hoa bay ngẫu nhiên phía nền -->
     <script>
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.classList.add('heart-bg');
-            heart.innerHTML = '❤️';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = Math.random() * 3 + 3 + 's';
-            heart.style.fontSize = Math.random() * 15 + 15 + 'px';
-            document.body.appendChild(heart);
+        function createRose() {
+            const rose = document.createElement('div');
+            rose.classList.add('rose-bg');
+            // Random ngẫu nhiên giữa hoa hồng và trái tim nhỏ
+            const icons = ['🌹', '🌸', '❤️', '💕'];
+            rose.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+            
+            rose.style.left = Math.random() * 100 + 'vw';
+            rose.style.animationDuration = Math.random() * 3 + 4 + 's'; // từ 4-7 giây
+            rose.style.fontSize = Math.random() * 12 + 12 + 'px'; // từ 12-24px
+            document.body.appendChild(rose);
             
             setTimeout(() => {
-                heart.remove();
-            }, 6000);
+                rose.remove();
+            }, 7000);
         }
-        setInterval(createHeart, 300);
+        // Tạo cánh hoa liên tục mỗi 400ms
+        setInterval(createRose, 400);
     </script>
 
 </body>
